@@ -15,6 +15,11 @@ type Block struct {
 	Nonce    int
 }
 
+type BlockChainIterator struct {
+	current    int
+	blockchain *BlockChain
+}
+
 // BlockChain represents a BlockChain
 type BlockChain []Block
 
@@ -45,17 +50,32 @@ func (bc *BlockChain) Last() (block Block, err error) {
 	}
 }
 
-// Serialize will serialize a BlockChain into an slice of bytes
-func (bc *BlockChain) Serialize() (data []byte, err error) {
+// Marshal will marshal a BlockChain into an slice of bytes
+func (bc *BlockChain) Marshal() (data []byte, err error) {
 	var res bytes.Buffer
 	encoder := gob.NewEncoder(&res)
 	err = encoder.Encode(bc)
 	return res.Bytes(), err
 }
 
-// Deserialize deserializes a slice of bytes into a BlockChain
+func (bc *BlockChain) Iterator() *BlockChainIterator {
+	return &BlockChainIterator{len(*bc), bc}
+}
+
+// Next walks through the blockchain history from latest to the genesis block
+func (iter *BlockChainIterator) Next() (block Block, err error) {
+	if iter.current == 0 {
+		err = errors.New("no entries earlier than the genesis block")
+		return
+	}
+	(*iter).current -= 1
+	bc := iter.blockchain
+	return (*bc)[iter.current], nil
+}
+
+// UnMarshal deserializes a slice of bytes into a BlockChain
 // data the array of bytes to deserialize
-func Deserialize(data []byte) (blockchain BlockChain, err error) {
+func UnMarshal(data []byte) (blockchain BlockChain, err error) {
 	decoder := gob.NewDecoder(bytes.NewReader(data))
 	err = decoder.Decode(&blockchain)
 	return

@@ -18,8 +18,8 @@ type Proof struct {
 }
 
 func (proof *Proof) init(nonce int) []byte {
-	nonceHex, _ := ToHex(int64(nonce))
-	difficultyHex, _ := ToHex(int64(Difficulty))
+	nonceHex, _ := toHex(int64(nonce))
+	difficultyHex, _ := toHex(int64(Difficulty))
 	data := bytes.Join(
 		[][]byte{
 			proof.Block.PrevHash,
@@ -77,7 +77,7 @@ func (proof *Proof) Validate() bool {
 	return intHash.Cmp(proof.Target) == -1
 }
 
-func ToHex(num int64) (hex []byte, err error) {
+func toHex(num int64) (hex []byte, err error) {
 	buff := new(bytes.Buffer)
 	err = binary.Write(buff, binary.BigEndian, num)
 
