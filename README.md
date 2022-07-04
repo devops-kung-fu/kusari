@@ -4,7 +4,11 @@
 
 # kusari (鎖)
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/devops-kung-fu/kusari) [![Go Report Card](https://goreportcard.com/badge/github.com/devops-kung-fu/kusari)](https://goreportcard.com/report/github.com/devops-kung-fu/kusari) [![codecov](https://codecov.io/gh/devops-kung-fu/kusari/branch/main/graph/badge.svg?token=P9WBOBQTOB)](https://codecov.io/gh/devops-kung-fu/kusari) [![SBOM](https://img.shields.io/badge/CyloneDX-SBoM-informational)](kusari-sbom.json)
+[![GoDoc](https://godoc.org/github.com/devops-kung-fu/kusari?status.svg)](https://pkg.go.dev/github.com/devops-kung-fu/kusari)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/devops-kung-fu/kusari) 
+[![Go Report Card](https://goreportcard.com/badge/github.com/devops-kung-fu/kusari)](https://goreportcard.com/report/github.com/devops-kung-fu/kusari) 
+[![codecov](https://codecov.io/gh/devops-kung-fu/kusari/branch/main/graph/badge.svg?token=P9WBOBQTOB)](https://codecov.io/gh/devops-kung-fu/kusari) 
+[![SBOM](https://img.shields.io/badge/CyloneDX-SBoM-informational)](kusari-sbom.json)
 
 A simple blockchain module for Golang.
 
@@ -26,6 +30,10 @@ log.SetOutput(ioutil.Discard)
 
 ```
 
+## Encoding and Decoding
+
+The ```Marshal``` function of the ```BlockChain``` struct uses gob to encode data instead of a JSON encoder. This is to enhance performance since BlockChains can get very large. A great article that discusses benchmarking of encoders/decoders and go binary file formats can be found [here](https://go-recipes.dev/go-binary-data-formats-d461c8d38aeb).
+
 ## Development
 
 ## Overview
@@ -39,7 +47,6 @@ This project makes use of [DKFM](https://github.com/devops-kung-fu) tools such a
 ``` bash
 
 go install github.com/devops-kung-fu/hookz@latest
-go install github.com/devops-kung-fu/lucha@latest
 go install github.com/devops-kung-fu/hinge@latest
 go install github.com/kisielk/errcheck@latest
 go install golang.org/x/lint/golint@latest
