@@ -30,6 +30,10 @@ log.SetOutput(ioutil.Discard)
 
 ```
 
+## Encoding and Decoding
+
+The ```Marshal``` function of the ```BlockChain``` struct uses gob to encode data instead of a JSON encoder. This is to enhance performance since BlockChains can get very large. A great article that discusses benchmarking of encoders/decoders and go binary file formats can be found [here](https://go-recipes.dev/go-binary-data-formats-d461c8d38aeb).
+
 ## Development
 
 ## Overview

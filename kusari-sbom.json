@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.2",
-  "serialNumber": "urn:uuid:27be772b-e63e-481d-9f64-a684856e9828",
+  "serialNumber": "urn:uuid:22ad28af-b305-4f08-b8d8-f2281f176771",
   "version": 1,
   "metadata": {
-    "timestamp": "2022-07-04T08:30:14-06:00",
+    "timestamp": "2022-07-04T08:43:31-06:00",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -31,11 +31,11 @@
       }
     ],
     "component": {
-      "bom-ref": "pkg:golang/github.com/devops-kung-fu/kusari@v0.0.0-20220704080248-3170c7412b28",
+      "bom-ref": "pkg:golang/github.com/devops-kung-fu/kusari@v0.0.0-20220704083007-5b3eca12d8d7",
       "type": "application",
       "name": "github.com/devops-kung-fu/kusari",
-      "version": "v0.0.0-20220704080248-3170c7412b28",
-      "purl": "pkg:golang/github.com/devops-kung-fu/kusari@v0.0.0-20220704080248-3170c7412b28",
+      "version": "v0.0.0-20220704083007-5b3eca12d8d7",
+      "purl": "pkg:golang/github.com/devops-kung-fu/kusari@v0.0.0-20220704083007-5b3eca12d8d7",
       "externalReferences": [
         {
           "url": "https://github.com/devops-kung-fu/kusari",
@@ -47,7 +47,7 @@
   "components": [],
   "dependencies": [
     {
-      "ref": "pkg:golang/github.com/devops-kung-fu/kusari@v0.0.0-20220704080248-3170c7412b28"
+      "ref": "pkg:golang/github.com/devops-kung-fu/kusari@v0.0.0-20220704083007-5b3eca12d8d7"
     }
   ]
 }
