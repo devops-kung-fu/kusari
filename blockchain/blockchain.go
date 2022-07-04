@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-// Block defines a Block on the BlockChain.
+// Block defines a Block on a BlockChain.
 type Block struct {
 	Hash     []byte
 	Data     []byte
@@ -15,7 +15,8 @@ type Block struct {
 	Nonce    int
 }
 
-type BlockChainIterator struct {
+// Iterator allows for iterating over a BlockChain
+type Iterator struct {
 	current    int
 	blockchain *BlockChain
 }
@@ -39,15 +40,15 @@ func (bc *BlockChain) Push(data []byte) (err error) {
 	return
 }
 
-// Pop removes and returns the last element of blockchain
+// Last removes and returns the last element of blockchain
 func (bc *BlockChain) Last() (block Block, err error) {
 	if bc.IsEmpty() {
 		return block, errors.New("blockchain is empty")
-	} else {
-		index := len(*bc) - 1
-		block = (*bc)[index]
-		return block, nil
 	}
+
+	index := len(*bc) - 1
+	block = (*bc)[index]
+	return block, nil
 }
 
 // Marshal will marshal a BlockChain into an slice of bytes
@@ -58,17 +59,18 @@ func (bc *BlockChain) Marshal() (data []byte, err error) {
 	return res.Bytes(), err
 }
 
-func (bc *BlockChain) Iterator() *BlockChainIterator {
-	return &BlockChainIterator{len(*bc), bc}
+//Iterator returns an iterator to navigate over a BlockChain
+func (bc *BlockChain) Iterator() *Iterator {
+	return &Iterator{len(*bc), bc}
 }
 
 // Next walks through the blockchain history from latest to the genesis block
-func (iter *BlockChainIterator) Next() (block Block, err error) {
+func (iter *Iterator) Next() (block Block, err error) {
 	if iter.current == 0 {
 		err = errors.New("no entries earlier than the genesis block")
 		return
 	}
-	(*iter).current -= 1
+	(*iter).current--
 	bc := iter.blockchain
 	return (*bc)[iter.current], nil
 }
