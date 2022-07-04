@@ -47,7 +47,6 @@ This project makes use of [DKFM](https://github.com/devops-kung-fu) tools such a
 ``` bash
 
 go install github.com/devops-kung-fu/hookz@latest
-go install github.com/devops-kung-fu/lucha@latest
 go install github.com/devops-kung-fu/hinge@latest
 go install github.com/kisielk/errcheck@latest
 go install golang.org/x/lint/golint@latest
