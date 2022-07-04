@@ -4,7 +4,11 @@
 
 # kusari (鎖)
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/devops-kung-fu/kusari) [![Go Report Card](https://goreportcard.com/badge/github.com/devops-kung-fu/kusari)](https://goreportcard.com/report/github.com/devops-kung-fu/kusari) [![codecov](https://codecov.io/gh/devops-kung-fu/kusari/branch/main/graph/badge.svg?token=P9WBOBQTOB)](https://codecov.io/gh/devops-kung-fu/kusari) [![SBOM](https://img.shields.io/badge/CyloneDX-SBoM-informational)](kusari-sbom.json)
+[![GoDoc](https://godoc.org/github.com/devops-kung-fu/kusari?status.svg)](https://pkg.go.dev/github.com/devops-kung-fu/kusari)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/devops-kung-fu/kusari) 
+[![Go Report Card](https://goreportcard.com/badge/github.com/devops-kung-fu/kusari)](https://goreportcard.com/report/github.com/devops-kung-fu/kusari) 
+[![codecov](https://codecov.io/gh/devops-kung-fu/kusari/branch/main/graph/badge.svg?token=P9WBOBQTOB)](https://codecov.io/gh/devops-kung-fu/kusari) 
+[![SBOM](https://img.shields.io/badge/CyloneDX-SBoM-informational)](kusari-sbom.json)
 
 A simple blockchain module for Golang.
 
